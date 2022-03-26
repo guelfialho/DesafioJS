@@ -32,9 +32,10 @@ class Carousel {
 
     static Next(){
        const displayCarousel = document.getElementById("carousel");
+       const displayCarouselTitle = document.getElementById("carousel-title")
         
-       // displayCarousel.innerHTML = inserirImagem(carouselArr[0]);
        displayCarousel.innerHTML = inserirImagem(carouselArr[0]);
+       displayCarouselTitle.innerHTML = inserirTitulo(carouselArr[0])
     }
 };
 
@@ -42,5 +43,9 @@ class Carousel {
 
 
 function inserirImagem(array){
-    return link = `<img class="selected" alt="${array.image}"src="./img/${array.image}">`
+    return link = `<img class="img-selected" alt="${array.image}"src="./img/${array.image}">`
+}
+
+function inserirTitulo(array){
+    return titulo = `<div class="title-selected">${array.title}</div>`
 }
