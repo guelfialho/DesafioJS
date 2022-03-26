@@ -59,9 +59,9 @@ class Carousel {
 
 
 function inserirImagem(array){
-    return link = `<img class="img-selected" alt="${array.image}"src="./img/${array.image}">`
+    return link = `<a href="${array.link}"><img class="img-selected" alt="${array.image}"src="./img/${array.image}"></a>`
 }
 
 function inserirTitulo(array){
-    return titulo = `<div class="title-selected">${array.title}</div>`
+    return titulo = `<a href="${array.link}"> ${array.title}</a>`
 }
