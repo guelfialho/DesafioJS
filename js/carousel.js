@@ -19,11 +19,13 @@ class Carousel {
         if(arr){
 
             if(arr.length > 0){
-                Carousel._sequence = 0;
+                Carousel._sequence = -1;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
                 Carousel._interval = setInterval(function(){ Carousel.Next(); },2000);
             }
+
+            
             
         } else {
             throw "Method Start need a Array Variable.";
@@ -31,11 +33,25 @@ class Carousel {
     }
 
     static Next(){
-       const displayCarousel = document.getElementById("carousel");
-       const displayCarouselTitle = document.getElementById("carousel-title")
         
-       displayCarousel.innerHTML = inserirImagem(carouselArr[0]);
-       displayCarouselTitle.innerHTML = inserirTitulo(carouselArr[0])
+       
+        this._sequence+=1; 
+
+        if(this._sequence >= this._size){
+            this._sequence = 0;
+        }
+
+        const displayCarousel = document.getElementById("carousel");
+        const displayCarouselTitle = document.getElementById("carousel-title")
+        
+        displayCarousel.innerHTML = inserirImagem(carouselArr[this._sequence]);
+        displayCarouselTitle.innerHTML = inserirTitulo(carouselArr[this._sequence])
+       
+        
+       
+       
+
+       
     }
 };
 
