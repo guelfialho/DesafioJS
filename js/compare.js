@@ -3,10 +3,18 @@
 let carArr = [];
 
 class Car {
-   
-
-    constructor(nome, preco, alturaCacamba, alturaVeiculo, alturaSolo, capacidadeCarga, motor, potencia, volumeCacamba, roda, image){
-       
+   constructor(nome, preco, alturaCacamba, alturaVeiculo, alturaSolo, capacidadeCarga, motor, potencia, volumeCacamba, roda, image){
+       this.nome = nome;
+       this.preco = preco;
+       this.alturaCacamba= alturaCacamba;
+       this.alturaVeiculo= alturaVeiculo;
+       this.alturaSolo = alturaSolo;
+       this.capacidadeCarga = capacidadeCarga;
+       this.motor = motor;
+       this.potencia = potencia;
+       this.volumeCacamba = volumeCacamba;
+       this.roda = roda;
+       this.image = image;
     }
 } 
 
@@ -23,7 +31,7 @@ function SetCarToCompare(el, carClass) {
    
     if(carClass instanceof Car){       
         if(el.checked){
-                
+                carArr.push(carClass);
             
         } else {
           
@@ -48,5 +56,28 @@ function HideCompare(){
 }
 
 function UpdateCompareTable() {
-    
+    for(let i = 0; i < 2; i++) {
+        const modelo = document.getElementById("compare_modelo_"+i);
+        const preco = document.getElementById("compare_preco_"+i);
+        const alturaCacamba = document.getElementById("compare_alturacacamba_"+i);
+        const alturaVeiculo = document.getElementById("compare_alturaveiculo_"+i);
+        const alturaSolo = document.getElementById("compare_alturasolo_"+i);
+        const capacidadeCarga = document.getElementById("compare_capacidadecarga_"+i);
+        const motor = document.getElementById("compare_motor_"+i);
+        const potencia = document.getElementById("compare_potencia_"+i);
+        const volumeCacamba = document.getElementById("compare_volumecacamba_"+i);
+        const roda = document.getElementById("compare_roda_"+i);
+     
+
+        modelo.textContent = carArr[i].nome;
+        preco.textContent = carArr[i].preco;
+        alturaCacamba.textContent = carArr[i].alturaCacamba;
+        alturaVeiculo.textContent = carArr[i].alturaVeiculo;
+        alturaSolo.textContent = carArr[i].alturaSolo;
+        capacidadeCarga.textContent = carArr[i].capacidadeCarga;
+        motor.textContent = carArr[i].motor;
+        potencia.textContent = carArr[i].potencia;
+        volumeCacamba.textContent = carArr[i].volumeCacamba;
+        roda.textContent = carArr[i].roda;
+    }
 }
