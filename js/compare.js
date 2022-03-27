@@ -31,10 +31,23 @@ function SetCarToCompare(el, carClass) {
    
     if(carClass instanceof Car){       
         if(el.checked){
-                carArr.push(carClass);
-            
+               if(carArr.length < 1) { 
+                   carArr.push(carClass);
+                   el.classList.add("primeiro-carro")
+               } else if(carArr.length > 0 && carArr.length < 2){
+                    carArr.push(carClass);
+                    el.classList.add("segundo-carro")
+               } else {
+                   el.checked = false;
+               }
         } else {
-          
+            if(el.classList.contains("primeiro-carro")){
+                carArr.splice(0,1);
+                alert("Removendo o Primeiro Carro");
+            } else if (el.classList.contains("segundo-carro")){
+                carArr.splice(1,1);
+                alert("Removendo o Segundo Carro");
+            }
         } 
     } else {
         throw "You need set a Car Class";
@@ -53,6 +66,9 @@ function ShowCompare() {
 
 function HideCompare(){
     document.getElementById("compare").style.display = "none"; 
+    uncheckAll();
+    removeData();
+    console.log(carArr);
 }
 
 function UpdateCompareTable() {
@@ -79,5 +95,18 @@ function UpdateCompareTable() {
         potencia.textContent = carArr[i].potencia;
         volumeCacamba.textContent = carArr[i].volumeCacamba;
         roda.textContent = carArr[i].roda;
+    }
+}
+
+function uncheckAll(){
+    const teste = document.querySelectorAll(".checkbox");
+    for (let i = 0; i < teste.length; i++) {
+        teste[i].checked = false;
+    }
+}
+
+function removeData(){
+    for(let i = 0; i <= carArr.length; i++) {
+        carArr.pop();
     }
 }
