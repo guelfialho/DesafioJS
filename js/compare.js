@@ -41,7 +41,7 @@ function SetCarToCompare(el, carClass) {
                             carArr[1] = carClass;
                             el.classList.add("segundo-carro") 
                         } else if(verificar1 == undefined) {
-                            carArr[0]= carClass;
+                            carArr[1]= carClass;
                             el.classList.add("primeiro-carro");
                         } else {
                             el.checked = false;
@@ -77,9 +77,9 @@ function ShowCompare() {
 
 function HideCompare(){
     document.getElementById("compare").style.display = "none"; 
-    uncheckAll();
+  //  uncheckAll();
     removeData();
-    console.log(carArr);
+    
 }
 
 function UpdateCompareTable() {
@@ -117,7 +117,15 @@ function uncheckAll(){
 }
 
 function removeData(){
-    for(let i = 0; i <= carArr.length; i++) {
-        carArr.pop();
+    
+    uncheckAll();
+
+    carArr.splice(1,1);
+    carArr.splice(0,1);
+
+    const car1 = document.querySelector(".primeiro-carro");
+    car1.classList.remove("primeiro-carro");
+
+    const car2 = document.querySelector(".segundo-carro");
+    car2.classList.remove("segundo-carro");
     }
-}
