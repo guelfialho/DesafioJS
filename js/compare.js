@@ -32,20 +32,31 @@ function SetCarToCompare(el, carClass) {
     if(carClass instanceof Car){       
         if(el.checked){
                if(carArr.length < 1) { 
-                   carArr.push(carClass);
-                   el.classList.add("primeiro-carro")
+                   carArr[0]= carClass;
+                   el.classList.add("primeiro-carro");
                } else if(carArr.length > 0 && carArr.length < 2){
-                    carArr.push(carClass);
-                    el.classList.add("segundo-carro")
+                     const verificar1 = document.querySelector(".primeiro-carro");  
+                     const verificar = document.querySelector(".segundo-carro");
+                        if(verificar == undefined) {
+                            carArr[1] = carClass;
+                            el.classList.add("segundo-carro") 
+                        } else if(verificar1 == undefined) {
+                            carArr[0]= carClass;
+                            el.classList.add("primeiro-carro");
+                        } else {
+                            el.checked = false;
+                    }
                } else {
                    el.checked = false;
                }
         } else {
             if(el.classList.contains("primeiro-carro")){
                 carArr.splice(0,1);
+                el.classList.remove("primeiro-carro");
                 alert("Removendo o Primeiro Carro");
             } else if (el.classList.contains("segundo-carro")){
                 carArr.splice(1,1);
+                el.classList.remove("segundo-carro");
                 alert("Removendo o Segundo Carro");
             }
         } 
