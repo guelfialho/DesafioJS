@@ -94,6 +94,7 @@ function UpdateCompareTable() {
         const potencia = document.getElementById("compare_potencia_"+i);
         const volumeCacamba = document.getElementById("compare_volumecacamba_"+i);
         const roda = document.getElementById("compare_roda_"+i);
+        const image = document.getElementById("compare_image_" +i);
      
 
         modelo.textContent = carArr[i].nome;
@@ -106,6 +107,7 @@ function UpdateCompareTable() {
         potencia.textContent = carArr[i].potencia;
         volumeCacamba.textContent = carArr[i].volumeCacamba;
         roda.textContent = carArr[i].roda;
+        image.innerHTML = insertImage(i);
     }
 }
 
@@ -129,3 +131,8 @@ function removeData(){
     const car2 = document.querySelector(".segundo-carro");
     car2.classList.remove("segundo-carro");
     }
+
+function insertImage(position){
+    const image = `<img class="compare-img" src="./${carArr[position].image}"> `
+    return image
+}
