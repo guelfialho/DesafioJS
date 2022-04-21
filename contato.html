@@ -44,11 +44,18 @@
                 <input type="text" name="cpf" placeholder="CPF*" class="fordform" required>
                 <input type="text" name="telefone" placeholder="TELEFONE*" class="fordform" required>
                 <select name="contato" class="fordform" required>
-                    <option selected>COMO DESEJA SER CONTATADO?</option>
+                    <option selected>COMO DESEJA SER CONTATADO</option>
                     <option>TELEFONE</option>
                     <option>E-MAIL</option>
                 </select>
-            <button type="submit">Enviar</button>
+                <select name="tipo" id="tipo" class="fordform">
+                    <option selected>QUAL A MOTIVAÇÃO DA MENSAGEM?</option>
+                    <option>Elogio</option>
+                    <option>Sugestão</option>
+                    <option>Reclamação</option>
+                </select>
+                <textarea name="mensagem"class="fordform2" placeholder="Digite sua mensagem aqui..."></textarea>
+            <button id="btn" type="submit">ENVIAR</button>
             </form>
             </div>
         </div>
