@@ -1,4 +1,3 @@
-
 //class contato
 
 class contato {
@@ -20,15 +19,17 @@ function Post(form) {
             form.elements.namedItem("cpf").value, 
             form.elements.namedItem("telefone").value, 
             form.elements.namedItem("contato").value);
-  
+            Enviar(data);
+            
 }
 
-function Enviar() {
+function Enviar(data) {
 
-    var nome = document.getElementById("nomeid");
-
-    if (nome.value != "") {
-        alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
-    }
-
+    console.log(data.nome)
+    console.log(data.sobrenome)
+    console.log(data.email)
+    console.log(data.cpf)
+    console.log(data.telefone)
+    console.log(data.contato)
+    alert('Obrigado sr(a) ' + data.nome + ' ' + data.sobrenome + ' os seus dados foram encaminhados com sucesso');
 }
