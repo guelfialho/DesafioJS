@@ -73,8 +73,15 @@ input:focus {
     padding: 5px;
 }
 
+#btn {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}
 #btn:hover {
-    background-color: black;
+    background-color: #1351d8;
+    color: white;
     font-size: 20px;
     cursor: pointer;
+    border: none;
 }
