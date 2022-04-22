@@ -1,10 +1,7 @@
-
-
 //carousel
 
 //Array storage class
 let carouselArr = [];
-
 
 //class Carousel
 class Carousel {
@@ -15,26 +12,19 @@ class Carousel {
     }
       
     static Start(arr){
-        
         if(arr){
-
             if(arr.length > 0){
                 Carousel._sequence = -1;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
                 Carousel._interval = setInterval(function(){ Carousel.Next(); },2000);
             }
-
-            
-            
-        } else {
+         } else {
             throw "Method Start need a Array Variable.";
         }
     }
 
     static Next(){
-        
-       
         this._sequence+=1; 
 
         if(this._sequence >= this._size){
@@ -45,18 +35,9 @@ class Carousel {
         const displayCarouselTitle = document.getElementById("carousel-title")
         
         displayCarousel.innerHTML = inserirImagem(carouselArr[this._sequence]);
-        displayCarouselTitle.innerHTML = inserirTitulo(carouselArr[this._sequence])
-       
-        
-       
-       
-
-       
+        displayCarouselTitle.innerHTML = inserirTitulo(carouselArr[this._sequence]);      
     }
 };
-
-
-
 
 function inserirImagem(array){
     return link = `<a href="${array.link}"><img class="img-selected" alt="${array.image}"src="./img/${array.image}"></a>`

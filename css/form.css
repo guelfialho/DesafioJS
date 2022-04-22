@@ -81,7 +81,8 @@ input:focus {
 #btn:hover {
     background-color: #1351d8;
     color: white;
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
     border: none;
 }
